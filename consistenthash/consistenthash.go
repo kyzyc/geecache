@@ -48,6 +48,9 @@ func (m *Map) Remove(keys ...string) {
 		for i := 0; i < m.replicas; i++ {
 			hash := int(m.hash([]byte(strconv.Itoa(i) + key)))
 			idx := sort.SearchInts(m.keys, hash)
+			if m.keys[idx] != hash {
+				continue
+			}
 			m.keys = append(m.keys[:idx], m.keys[idx+1:]...)
 			delete(m.hashMap, hash)
 		}
