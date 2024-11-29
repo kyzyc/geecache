@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	defaultBastPath = "/_geecache/"
+	defaultBasePath = "/_geecache/"
 	defaultReplicas = 50
 )
 
@@ -30,7 +30,7 @@ type HTTPPool struct {
 func NewHTTPPool(self string) *HTTPPool {
 	return &HTTPPool{
 		self:     self,
-		basePath: defaultBastPath,
+		basePath: defaultBasePath,
 	}
 }
 
